@@ -14,58 +14,91 @@ enum Classification{
     case Sophomore
     case Junior
     case Senior
+    
+        var description: String{
+            
+
+        switch self {
+        case .Freshman: return "Freshman";
+        case .Sophomore: return "Sophomore";
+        case .Junior: return "Junior";
+        case .Senior: return "Senior";
+        
+        }
+    }
 }
 
 class Survey{
     var fname: String
     var lname: String
     var hometown: String
-    var type: Classification?
-    // var dob: NSDateFormatter?
-    // var age: Float
+    var type: Classification
+    var date: Int?
+    var month: Int?
+    var year: Int?
+    var age: Double?
     
-    //  init (dateString:String) {
-    //     let dateStringFormatter = NSDateFormatter()
-    //       dateStringFormatter.dateFormat = "MM-DD-YYYY"
-    //  }
-    
-    //no birthday provided
-    init(fname:String, lname: String, hometown: String, type: Classification//, //dob: NSDateFormatter
+
+ 
+    init(fname:String, lname: String, hometown: String, type: Classification, date: Int?, month: Int?, year: Int?
         ){
-            self.fname=fname
-            self.lname=lname
-            self.hometown=hometown
-            self.type=type
-            // self.dob = dob
-            
+            self.fname = fname
+            self.lname = lname
+            self.hometown = hometown
+            self.type = type
+           self.date = date
+           self.month = month
+           self.year = year
+        
     }
-    
-    //birthday provided
-    //  init (fname:String, lname: String, hometown: String, type: Classification, dob: NSDateFormatter){
-    //self.fname=fname
-    // self.lname=lname
-    // self.hometown=hometown
-    // self.type=type
-    //  self.dob=dob
-    //  self.age=
-    
-    // }
+}
+
+func calculateAge(year: Int, month: Int, date: Int)->Double{
+    let myDOB = NSCalendar.currentCalendar().dateWithEra(1, year: year, month: month, day: date, hour: 0, minute: 0, second: 0, nanosecond: 0)!
+    let myAge = myDOB.timeIntervalSinceNow
+    return myAge
+}
+
+let age = calculateAge(1994, month: 11, date: 16)*(-1)
+let ageyear = age/(3.154e7)
+let printAge = String(format: "%.3f", ageyear)
+
+
+extension Survey : CustomStringConvertible {
+    var description: String {
+        return "\n"
+            +  "    Name: \(fname) \(lname)\n"
+            +  "    Hometown: \(hometown)\n"
+            +  "    Class: \(type.description)\n"
+            +  "    Birthday: \(month!)/\(date!)/\(year!)\n"
+            +  "    Age: \(printAge) years old"
+     
+    }
 }
 
 
-var Cory = Survey(fname: "Cory", lname: "Jbara", hometown: "Waterford, MI", type: Classification.Junior)
-var Victor = Survey(fname: "Victor", lname: "Hawley", hometown: "Los Angeles, CA", type: Classification.Senior//, dob: "10-31-1993"
-)
-var Lucinda = Survey(fname: "Lucinda", lname: "Krahl", hometown: "Lindsay, TX", type: Classification.Senior//, dob: "02-25-1994"
-)
-var Jose = Survey(fname: "Jose", lname: "Suarez", hometown: "Monterrey, Mexico", type: Classification.Junior//, dob: "06-14-1994"
-)
-var Katie = Survey(fname: "Katie", lname: "Kuenster", hometown: "St.Paul, MN", type: Classification.Junior//, dob: "02-05-1995"
-)
+
+//struct student: CustomStringConvertible{
+ 
+   // var description: String {
+
+      //  return "\(Cory)"
+        
+   /// }
+//}
 
 
-struct student: CustomStringConvertible{
-    var description: String {
-        return "Name: \(Cory.fname) \(Cory.lname) Hometown: \(Cory.hometown) Class: \(Cory.type)"
-    }
+
+
+
+
+
+//write a method dateStringAs that accepts an NSDateFormatter and returns the formatted date as a string
+
+func dateStringAs(_: NSDateFormatter) ->String {
+    let dateFormatter = NSDateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    let d = NSDate()
+    let s = dateFormatter.stringFromDate(d)
+    return s
 }

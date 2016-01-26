@@ -23,30 +23,37 @@
                                     <accessibilityTraits key="traits" staticText="YES" header="YES"/>
                                 </accessibility>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P71-Hz-gbj">
-                                <rect key="frame" x="105" y="137" width="97" height="30"/>
+                                <rect key="frame" x="102" y="82" width="97" height="30"/>
                                 <accessibility key="accessibilityConfiguration" hint="Name"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QxO-98-ElJ">
-                                <rect key="frame" x="105" y="211" width="91" height="30"/>
+                                <rect key="frame" x="105" y="134" width="91" height="30"/>
                                 <state key="normal" title="Search"/>
                                 <connections>
-                                    <action selector="searchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gDv-W7-sLA"/>
+                                    <action selector="searchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gwE-jU-hvQ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZ1-Kc-WPP">
+                                <rect key="frame" x="14" y="193" width="293" height="351"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration" hint="Name"/>
                     </view>
                     <connections>
                         <outlet property="menuLabel" destination="pFh-zv-GNE" id="Xog-7F-WAy"/>
-                        <outlet property="searchButton" destination="QxO-98-ElJ" id="oYR-yB-xMV"/>
+                        <outlet property="searchButton" destination="QxO-98-ElJ" id="L3w-Ti-HbL"/>
                         <outlet property="searchText" destination="P71-Hz-gbj" id="UzL-Vd-EUM"/>
+                        <outlet property="studentDisplay" destination="wZ1-Kc-WPP" id="IKy-ch-rMw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
